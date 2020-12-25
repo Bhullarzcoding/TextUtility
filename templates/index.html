@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Text analyzer</title>
+    <style>
+        body{
+            background: rgb(241, 241, 241)
+        }
+        textarea {
+            margin: 0px;
+            width: 1073px;
+            height: 238px;
+        }
+
+        h1 {
+            text-align: center;
+            background-color: gray;
+            color: white;
+            width: 69%;
+            height: 43px;
+            border-radius: 20px;
+            display: block;
+            margin: auto;
+            margin-top: 8%;
+            margin-bottom: 2%;
+            padding: 5px
+        }
+
+        #submit{
+            background-color: rgb(61, 99, 105);
+            color: white;
+            height: 40px;
+            width: 100px;
+            border: 2px solid gray;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 0.85rem;
+            cursor: pointer;
+        }
+        #submit:hover{
+            background-color: white;
+            color: gray;
+            border: 2px solid gray
+        }
+
+        #container {
+            display: flex;
+            flex-direction: row;
+        }
+
+        .item {
+            margin: 4px 18px;
+            font-size: 1.5rem;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            color: white;
+            text-decoration: none;
+            padding-top: 8px
+        }
+
+        .name {
+            margin: 4px 18px;
+            font-size: 1.7rem;
+            font-weight: bold;
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            color: white;
+            padding-top: 5px
+        }
+
+        nav{
+            background-color: rgb(61, 99, 105);
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            height: 10%;
+            width: 100%
+        }
+        #search{            
+            margin-left: 500px;
+            margin-top: 8px;
+            border-radius: 6px;
+            height: 36px;
+            width: 150px
+        }
+        #searchbtn{
+            margin-left: 20px;
+            width: 70px;
+            height: 34px;
+            margin-top: 11px;
+            border-radius: 10px;
+            background-color: rgb(61, 99, 105);
+            border: 2px solid white;
+            color: white
+        }
+
+        #con2 {
+            display: block;
+            width: 80%;
+            margin: auto
+        }
+
+        input {
+            height: 20px;
+        }
+
+        label {
+            font-weight: bold
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <div id="container">
+            <div class="name">TextUtility.in</div>
+            <a href="index.html" class="item">Home </a>
+            <a href="/about" class="item">About us </a>
+            <a href="contact.html" class="item">Contact us </a>
+            <input type="text" id="search" placeholder="search">
+            <button id="searchbtn">search</button>
+        </div>
+    </nav>
+    <div id="con2">
+        <h1>Welcome to the text analyzer , Enter your text below</h1>
+        <form action="/analyze" method="post"> {% csrf_token %}
+            <textarea name="text"></textarea>
+            <label for="removepunc">Remove punctuations</label>
+            <input type="checkbox" name="removepunc">
+            <br>
+            <label for="fullcap">UPPERCASE</label>
+            <input type="checkbox" name="fullcap">
+            <br>
+            <label for="fullcap">New line remover</label>
+            <input type="checkbox" name="nlineremover">
+            <br>
+            <label for="exspaceremover">Extra spaces remover</label>
+            <input type="checkbox" name="exspaceremover">
+            <br>
+            <label for="charcount">Count number of characters</label>
+            <input type="checkbox" name="charcount">
+            <br>
+            <br>
+            <button id='submit' type="submit">Analyze Text</button>
+        </form>
+    </div>
+</body>
+
+</html>
